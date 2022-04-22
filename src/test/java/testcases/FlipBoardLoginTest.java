@@ -1,5 +1,6 @@
 package testcases;
 
+import base.BaseTest;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -10,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import steps.FlipboardSteps;
 
 @RunWith(SerenityRunner.class)
-public class FlipBoardLoginTest {
+public class FlipBoardLoginTest extends BaseTest {
     @Managed(driver = "appium")
     public WebDriver driver;
     @Steps
