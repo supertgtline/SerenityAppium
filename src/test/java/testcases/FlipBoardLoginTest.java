@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import steps.FlipboardSteps;
 
 @RunWith(SerenityRunner.class)
-public class FlipBoardLoginTest extends BaseTest {
+public class FlipBoardLoginTest extends BaseTest{
     @Managed(driver = "appium")
     public WebDriver driver;
     @Steps

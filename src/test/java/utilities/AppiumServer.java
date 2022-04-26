@@ -3,19 +3,35 @@ package utilities;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
 import java.util.HashMap;
 
 public class AppiumServer {
     public static AppiumDriverLocalService service;
+    public static  DesiredCapabilities cap;
+    public static AppiumServiceBuilder builder;
 
     public static void start(){
+        //Set Capabilities
+        cap = new DesiredCapabilities();
+        cap.setCapability("noReset", "false");
+
+        //Build the Appium service
+        builder = new AppiumServiceBuilder();
+        builder.withIPAddress("127.0.0.1");
+        builder.usingPort(4723);
+        builder.withCapabilities(cap);
+        builder.withArgument(GeneralServerFlag.SESSION_OVERRIDE);
+        builder.withArgument(GeneralServerFlag.LOG_LEVEL,"error");
 
         // starting the Appium server code
-
-      service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-                .withArgument(GeneralServerFlag.SESSION_OVERRIDE));
+/*
+        service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+                .withArgument(GeneralServerFlag.SESSION_OVERRIDE));*/
+        service = AppiumDriverLocalService.buildService(builder);
+        service.start();
 
 
   /*      HashMap<String, String> environment = new HashMap<String, String>();
@@ -27,8 +43,6 @@ public class AppiumServer {
                 .withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
                 .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                 .withEnvironment(environment).withLogFile(new File("Server.log")));*/
-        service.start();
-
 
 
     }

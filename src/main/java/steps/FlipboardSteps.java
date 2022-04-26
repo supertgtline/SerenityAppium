@@ -7,7 +7,7 @@ import screens.HomeScreen;
 import screens.LoginScreen;
 import screens.SearchScreen;
 
-public class FlipboardSteps {
+public class FlipboardSteps{
     LoginScreen login;
     ChooseTopicsScreen topicScreen;
     HomeScreen home;
