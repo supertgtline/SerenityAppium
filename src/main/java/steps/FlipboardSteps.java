@@ -37,9 +37,10 @@ public class FlipboardSteps{
 
 
     @Step("Clicking on Skip now")
-    public void skipLogin() {
+    public HomeScreen skipLogin() {
 
         topicScreen.skipLogin();
+        return new HomeScreen();
 
 
     }

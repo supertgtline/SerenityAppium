@@ -19,7 +19,7 @@ public class SearchScreen extends ScreeBase {
     public void searchFlipBoard(String searchText) {
 
         waitFor(searchBox).click();
-        waitFor(searchInput).sendKeys(searchText);
+        waitFor(searchInput).sendKeys(searchText+"\n");
         enter();
 
     }

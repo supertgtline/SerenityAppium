@@ -20,17 +20,19 @@ public class AppiumServer {
 
         //Build the Appium service
         builder = new AppiumServiceBuilder();
-        builder.withIPAddress("127.0.0.1");
+        builder.withIPAddress("0.0.0.0");
         builder.usingPort(4723);
         builder.withCapabilities(cap);
         builder.withArgument(GeneralServerFlag.SESSION_OVERRIDE);
         builder.withArgument(GeneralServerFlag.LOG_LEVEL,"error");
 
         // starting the Appium server code
-/*
-        service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
-                .withArgument(GeneralServerFlag.SESSION_OVERRIDE));*/
-        service = AppiumDriverLocalService.buildService(builder);
+        service=AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
+                 //       .withIPAddress("0.0.0.0")
+               //         .withArgument(()->"--base-path","wd/hub")
+               // .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+                .withLogFile(new File( "Server.log")));
+       // service = AppiumDriverLocalService.buildService(builder);
         service.start();
 
 
