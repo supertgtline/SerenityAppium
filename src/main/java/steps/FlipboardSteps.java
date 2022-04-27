@@ -70,7 +70,7 @@ public class FlipboardSteps{
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        //login.scrollUp(count);
+        login.scrollUp(count);
     }
 
 
@@ -83,7 +83,7 @@ public class FlipboardSteps{
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-//        login.scrollDown(count);
+        login.scrollDown(count);
     }
 
     @Step("Verifying searched text {0}")
