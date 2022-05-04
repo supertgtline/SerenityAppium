@@ -115,8 +115,8 @@
                     <includes>
 
                         <!-- <include>**/testcases/Parameterization.java</include> -->
-                        <include>**/testcases/**/*.java</include>
-                        <include>**/testcases/*.java</include>
+                        <include>**/testcases/**/SearchItemTest.java</include>
+                        <!--<include>**/testcases/*.java</include>-->
 
                     </includes>
 

@@ -1,10 +1,13 @@
 package screens;
 
 import base.ScreeBase;
-import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
+import io.appium.java_client.pagefactory.AndroidFindBy;
+
 public class SearchScreen extends ScreeBase {
+
     @AndroidFindBy(id="flipboard.app:id/search_box_place_holder")
     public WebElement searchBox;
 
@@ -19,7 +22,7 @@ public class SearchScreen extends ScreeBase {
     public void searchFlipBoard(String searchText) {
 
         waitFor(searchBox).click();
-        waitFor(searchInput).sendKeys(searchText+"\n");
+        waitFor(searchInput).sendKeys(searchText);
         enter();
 
     }
@@ -27,8 +30,11 @@ public class SearchScreen extends ScreeBase {
 
 
     public boolean verifySearchText(String text) {
-
+        String text1 = waitFor(searchTitleText).getText();
+        System.out.println(text1);
         return waitFor(searchTitleText).getText().contains(text);
 
     }
+
+
 }

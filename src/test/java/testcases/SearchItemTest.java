@@ -1,6 +1,5 @@
 package testcases;
 
-import base.BaseTest;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -18,10 +17,15 @@ public class SearchItemTest {
 
 
     private String searchitem;
+    private String result;
 
 
     public void setSearchitem(String searchitem) {
         this.searchitem = searchitem;
+    }
+    public void setResult(String result){
+        this.result=result;
+
     }
 
     @Managed(driver="appium")
@@ -43,7 +47,7 @@ public class SearchItemTest {
         flipboard.skipLogin();
         flipboard.selectBottomPanel(3);
         flipboard.searchFlipBoard(searchitem);
-        flipboard.verifySearchText(searchitem);
+        flipboard.verifySearchText(result);
 
 
     }
